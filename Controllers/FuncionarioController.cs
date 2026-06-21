@@ -95,7 +95,7 @@ public class FuncionarioController : ControllerBase
         var tableClient = GetTableClient();
         var funcionarioLog = new FuncionarioLog(funcionarioBanco, TipoAcao.Remocao, funcionarioBanco.Departamento, Guid.NewGuid().ToString());
 
-        // TODO: Chamar o método UpsertEntity para salvar no Azure Table
+        tableClient.UpsertEntity(funcionarioLog);
 
         return NoContent();
     }
